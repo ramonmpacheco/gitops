@@ -1,6 +1,13 @@
-FROM golang:1.19
+FROM golang:1.19 as build
 
-WORKDIR /go/src/gitops
-ENV PATH="/go/bin:${PATH}"
+WORKDIR /app
 
-CMD ["tail", "-f", "/dev/null"]
+COPY . .
+
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o server
+
+FROM scratch
+WORKDIR /app
+COPY --from=build /app/server .
+
+ENTRYPOINT ["./server"]
