@@ -8,4 +8,4 @@ resources:
 images:
 - name: goserver
   newName: ramonpacheco/gitops
-  newTag: f51195be9ef89322a8fba6ce91902993dffbab5b
+  newTag: c7fa5286dacaf195140f4259a1014934b61c3c8f
