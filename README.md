@@ -39,3 +39,4 @@ A5jXzuIp2icxZTBv
 
 // port foward
 > kubectl port-forward svc/argocd-server -n argocd 8080:443
+> kubectl port-forward svc/goserver-service 9090:8080
